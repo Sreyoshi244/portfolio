@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sreyoshi's Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Enable dark mode class strategy
+    tailwind.config = {
+      darkMode: 'class',
+    }
+  </script>
+</head>
+
+<body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-white transition duration-500">
+
+  <!-- Toggle Theme Button -->
+  <div class="fixed top-4 right-4 z-50">
+    <button onclick="document.documentElement.classList.toggle('dark')"
+      class="bg-indigo-500 text-white px-4 py-2 rounded shadow-md hover:scale-105 transition">
+      Toggle Theme
+    </button>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="bg-gradient-to-r from-sky-500 to-indigo-600 p-4 text-white fixed top-0 w-full z-40 shadow-lg">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <h1 class="text-xl font-extrabold tracking-wide">Sreyoshi</h1>
+      <ul class="flex gap-6 text-sm font-medium">
+        <li><a href="#home" class="hover:underline">Home</a></li>
+        <li><a href="#about" class="hover:underline">About</a></li>
+        <li><a href="#skills" class="hover:underline">Skills</a></li>
+        <li><a href="#projects" class="hover:underline">Projects</a></li>
+        <li><a href="#contact" class="hover:underline">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  
+  <!-- Home -->
+<!-- Home -->
+<section id="home" class="min-h-screen flex items-center justify-center pt-24 px-4 bg-gradient-to-br from-sky-100 via-blue-200 to-indigo-200 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 relative overflow-hidden">
+
+  <!-- Glowing Blobs Background -->
+  <div class="absolute top-0 left-0 w-80 h-80 bg-purple-400 opacity-20 rounded-full filter blur-3xl animate-pulse"></div>
+  <div class="absolute bottom-0 right-0 w-96 h-96 bg-blue-400 opacity-20 rounded-full filter blur-3xl animate-ping"></div>
+
+  <div class="z-10 max-w-4xl text-center">
+    <img src="./images/bg.png" class="w-40 h-40 mx-auto rounded-full shadow-lg hover:scale-110 transition duration-300 border-4 border-indigo-500" alt="Profile">
+    <h2 class="text-5xl sm:text-6xl font-extrabold mt-6 leading-tight bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 animate-fade-in">
+      Hi, I'm <span class="underline decoration-indigo-400 decoration-4">Sreyoshi</span>
+    </h2>
+    
+    <!-- Typing Effect -->
+    <p class="mt-4 text-xl text-gray-700 dark:text-gray-300">
+      <span class="font-semibold text-indigo-600 dark:text-indigo-400" id="typed-text"></span><span class="blinking-cursor">|</span>
+    </p>
+
+    <!-- CTA -->
+    <a href="#" class="inline-block mt-6 px-8 py-3 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition transform hover:scale-105 shadow-lg">Download Resume</a>
+  </div>
+
+  <!-- Typing Animation Script -->
+  <script>
+    const words = [
+      "ECE Enthusiast",
+      "Full-Stack Learner",
+      "Flask Developer",
+      "UI/UX Hobbyist",
+      "Arduino Explorer"
+    ];
+    let wordIndex = 0;
+    let charIndex = 0;
+    let currentText = '';
+    let isDeleting = false;
+
+    const typedText = document.getElementById("typed-text");
+
+    function type() {
+      const currentWord = words[wordIndex];
+
+      if (isDeleting) {
+        currentText = currentWord.substring(0, charIndex--);
+      } else {
+        currentText = currentWord.substring(0, charIndex++);
+      }
+
+      typedText.textContent = currentText;
+
+      if (!isDeleting && charIndex === currentWord.length) {
+        isDeleting = true;
+        setTimeout(type, 1200); // pause after full word
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        setTimeout(type, 200);
+      } else {
+        setTimeout(type, isDeleting ? 50 : 100);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      type();
+    });
+  </script>
+
+  <style>
+    .blinking-cursor {
+      animation: blink 1s step-start infinite;
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0;
+      }
+    }
+  </style>
+</section>
+
+
+
+
+  <!-- About -->
+  <section id="about" class="py-20 px-6 bg-white dark:bg-gray-900">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-6">About Me</h2>
+      <p class="mb-4 leading-relaxed">I'm an ECE student who loves to blend electronics with software. Currently
+        building full-stack projects and exploring UI/UX design as a side hobby.</p>
+      <p class="mb-4">Outside coding, you'll find me learning Arduino, RC cars, and Signal Systems!</p>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <!-- Skills -->
+  <section id="skills"
+    class="py-20 px-6 bg-gradient-to-br from-indigo-100 via-white to-blue-100 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-10 text-gray-900 dark:text-white">My Skills</h2>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 perspective">
+
+        <!-- Skill Card -->
+        <div class="group">
+          <div
+            class="relative p-6 rounded-xl transition-all duration-500 transform bg-white/10 dark:bg-white/10 text-white backdrop-blur-md border border-white/20 shadow-xl hover:rotate-[2deg] hover:scale-105 hover:shadow-2xl hover:border-indigo-400">
+            <div
+              class="absolute -inset-0.5 bg-gradient-to-r from-pink-500 to-purple-600 rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-300">
+            </div>
+            <div class="relative z-10 font-semibold text-lg text-white uppercase tracking-wide">HTML</div>
+          </div>
+        </div>
+
+        <!-- Repeat for other skills -->
+        <div class="group">
+          <div
+            class="relative p-6 rounded-xl transition-all duration-500 transform bg-white/10 dark:bg-white/10 text-white backdrop-blur-md border border-white/20 shadow-xl hover:rotate-[2deg] hover:scale-105 hover:shadow-2xl hover:border-indigo-400">
+            <div
+              class="absolute -inset-0.5 bg-gradient-to-r from-green-400 to-blue-500 rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-300">
+            </div>
+            <div class="relative z-10 font-semibold text-lg text-white uppercase tracking-wide">CSS</div>
+          </div>
+        </div>
+
+        <div class="group">
+          <div
+            class="relative p-6 rounded-xl transition-all duration-500 transform bg-white/10 dark:bg-white/10 text-white backdrop-blur-md border border-white/20 shadow-xl hover:rotate-[2deg] hover:scale-105 hover:shadow-2xl hover:border-indigo-400">
+            <div
+              class="absolute -inset-0.5 bg-gradient-to-r from-yellow-400 to-pink-500 rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-300">
+            </div>
+            <div class="relative z-10 font-semibold text-lg text-white uppercase tracking-wide">Python</div>
+          </div>
+        </div>
+
+        <div class="group">
+          <div
+            class="relative p-6 rounded-xl transition-all duration-500 transform bg-white/10 dark:bg-white/10 text-white backdrop-blur-md border border-white/20 shadow-xl hover:rotate-[2deg] hover:scale-105 hover:shadow-2xl hover:border-indigo-400">
+            <div
+              class="absolute -inset-0.5 bg-gradient-to-r from-cyan-400 to-blue-600 rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-300">
+            </div>
+            <div class="relative z-10 font-semibold text-lg text-white uppercase tracking-wide">Flask</div>
+          </div>
+        </div>
+
+        <div class="group">
+          <div
+            class="relative p-6 rounded-xl transition-all duration-500 transform bg-white/10 dark:bg-white/10 text-white backdrop-blur-md border border-white/20 shadow-xl hover:rotate-[2deg] hover:scale-105 hover:shadow-2xl hover:border-indigo-400">
+            <div
+              class="absolute -inset-0.5 bg-gradient-to-r from-red-400 to-yellow-500 rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-300">
+            </div>
+            <div class="relative z-10 font-semibold text-lg text-white uppercase tracking-wide">C</div>
+          </div>
+        </div>
+
+        <div class="group">
+          <div
+            class="relative p-6 rounded-xl transition-all duration-500 transform bg-white/10 dark:bg-white/10 text-white backdrop-blur-md border border-white/20 shadow-xl hover:rotate-[2deg] hover:scale-105 hover:shadow-2xl hover:border-indigo-400">
+            <div
+              class="absolute -inset-0.5 bg-gradient-to-r from-purple-400 to-pink-600 rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-300">
+            </div>
+            <div class="relative z-10 font-semibold text-lg text-white uppercase tracking-wide">Bootstrap</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Projects -->
+  <section id="projects" class="py-20 px-6 bg-white dark:bg-gray-900">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl font-bold mb-10 text-center">Projects</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Repeat this block for each project -->
+        <div
+          class="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-xl transform hover:scale-[1.03] hover:rotate-1 transition">
+          <img src="images/food.png" alt="Project" class="rounded mb-4 shadow-md">
+          <h3 class="text-xl font-semibold mb-2">Project 1: A Restaurent Website</h3>
+          <p class="text-sm text-gray-700 dark:text-gray-300">a simple website made using html and css</p>
+          <a href="https://github.com/Sreyoshi244/restaurant-website"
+            class="text-indigo-600 dark:text-indigo-400 hover:underline text-sm">View GitHub</a>
+        </div>
+        <div
+          class="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-xl transform hover:scale-[1.03] hover:rotate-1 transition">
+          <img src="images/netflix.png" alt="Project" class="rounded mb-4 shadow-md">
+          <h3 class="text-xl font-semibold mb-2">Project 2: Netflix Clone</h3>
+          <p class="text-sm text-gray-700 dark:text-gray-300">A clone of the netflix home page made using html and css
+          </p>
+          <a href="https://github.com/Sreyoshi244/Netflix_Clone"
+            class="text-indigo-600 dark:text-indigo-400 hover:underline text-sm">View GitHub</a>
+        </div>
+        <div
+          class="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-xl transform hover:scale-[1.03] hover:rotate-1 transition">
+          <img src="images/music.png" alt="Project" class="rounded mb-4 shadow-md">
+          <h3 class="text-xl font-semibold mb-2">Project 3: A Music Website</h3>
+          <p class="text-sm text-gray-700 dark:text-gray-300">a simple website made using html and css</p>
+          <a href="https://github.com/Sreyoshi244/music-website/tree/main/music%20website"
+            class="text-indigo-600 dark:text-indigo-400 hover:underline text-sm">View GitHub</a>
+        </div>
+        <div
+          class="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-xl transform hover:scale-[1.03] hover:rotate-1 transition">
+          <img src="images/game.png" alt="Project" class="rounded mb-4 shadow-md">
+          <h3 class="text-xl font-semibold mb-2">Project 4: A Rock Paper Scissor game</h3>
+          <p class="text-sm text-gray-700 dark:text-gray-300">Welcome to my simple yet fun implementation of the classic
+            Rock Paper Scissors game using Python!
+            Challenge your logic, test your luck, and enjoy this command-line battle of choices.</p>
+          <a href="https://github.com/Sreyoshi244/rock_paper_scissors"
+            class="text-indigo-600 dark:text-indigo-400 hover:underline text-sm">View GitHub</a>
+        </div>
+        <div
+          class="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-xl transform hover:scale-[1.03] hover:rotate-1 transition">
+          <img src="images/adventure.png" alt="Project" class="rounded mb-4 shadow-md">
+          <h3 class="text-xl font-semibold mb-2">Project 5:A voice assissted adventure game</h3>
+          <p class="text-sm text-gray-700 dark:text-gray-300">This game combines Python logic, voice narration (using
+            pyttsx3), and sound effects (pygame) to immerse players in an interactive adventure.</p>
+          <a href="https://github.com/Sreyoshi244/choose_adventure"
+            class="text-indigo-600 dark:text-indigo-400 hover:underline text-sm">View GitHub</a>
+        </div>
+        <div
+          class="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-xl transform hover:scale-[1.03] hover:rotate-1 transition">
+          <img src="images/guess game.png" alt="Project" class="rounded mb-4 shadow-md max-w-">
+          <h3 class="text-xl font-semibold mb-2">Project 6:colorfull guess game</h3>
+          <p class="text-sm text-gray-700 dark:text-gray-300">This Python-based number guessing game lets players pick a
+            difficulty level and race to beat the high score, all wrapped in a vibrant terminal interface using
+            colorama.</p>
+          <a href="https://github.com/Sreyoshi244/guess_game"
+            class="text-indigo-600 dark:text-indigo-400 hover:underline text-sm">View GitHub</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact"
+    class="py-20 px-6 bg-gradient-to-b from-blue-100 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
+    <div class="max-w-xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-6">Get in Touch</h2>
+      <form class="space-y-4">
+        <input type="text" placeholder="Your Name"
+          class="w-full p-3 rounded shadow-md bg-white dark:bg-gray-700 dark:text-white">
+        <input type="email" placeholder="Your Email"
+          class="w-full p-3 rounded shadow-md bg-white dark:bg-gray-700 dark:text-white">
+        <textarea placeholder="Your Message" rows="5"
+          class="w-full p-3 rounded shadow-md bg-white dark:bg-gray-700 dark:text-white"></textarea>
+        <button type="submit"
+          class="bg-indigo-600 text-white px-6 py-2 rounded hover:bg-indigo-700 shadow-md transition">Send
+          Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-indigo-600 text-white text-center py-4">
+    <p>© 2025 Sreyoshi portfolio</p>
+  </footer>
+</body>
+
+</html>
